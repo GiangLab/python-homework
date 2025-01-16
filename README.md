@@ -11,8 +11,8 @@
 
 Максимов Иван - bibavan
 
-Branch:
+# Branch:
 
-main - лабораторные работы 1 - 3, 
+# main - лабораторные работы 1 - 3, 
 
-master - курсовая работа
+# master в папке translatorBot - курсовая работа 
