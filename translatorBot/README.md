@@ -49,9 +49,9 @@
      ```
    - **Linux**: Установите через менеджер пакетов, например, на Ubuntu:
      ```bash
-     sudo apt install tesseract-ocr
- ```
-
+     sudo apt install tesseract-ocr 
+     ```
+     
 ## Использование
 
 1. Запустите Docker desktop 
@@ -59,4 +59,3 @@
    ```bash
    docker-compose up --build
    ```
-3. Теперь вы можете использовать функции из файла statFuncs.py для добавления просмотра и удаления данных из статистики.
