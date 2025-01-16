@@ -1,0 +1,17 @@
+# Используем официальный образ Python
+FROM python:3.11-slim
+
+# Устанавливаем зависимости
+WORKDIR /app
+COPY docker_requirements.txt /app/
+
+RUN pip install --no-cache-dir -r docker_requirements.txt
+
+# Копируем весь код в контейнер
+COPY postgres_handler.py /app
+
+# Экспонируем порт 5000
+EXPOSE 5000
+
+# Команда для запуска Flask-приложения
+CMD ["python", "postgres_handler.py"]
