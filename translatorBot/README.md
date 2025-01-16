@@ -41,6 +41,16 @@
    ```
 
 3. Установите Docker следуя инструкциям из [официальной документации](https://docs.docker.com/get-started/get-docker/?_gl=1*xf7d1i*_gcl_au*MTU1NTk1NzcyLjE3MzY5ODYyMzM.*_ga*MTA0NTc4MzAyNC4xNzI0MTU0OTAy*_ga_XJWPQMJYHQ*MTczNjk5MDc0NS41LjEuMTczNjk5MDc1Mi41My4wLjA)
+4. Установите Tesseract OCR:
+   - **Windows**: Скачайте установщик с [страницы загрузок Tesseract для Windows](https://github.com/UB-Mannheim/tesseract/wiki).
+   - **MacOS**: Установите через Homebrew:
+     ```bash
+     brew install tesseract
+     ```
+   - **Linux**: Установите через менеджер пакетов, например, на Ubuntu:
+     ```bash
+     sudo apt install tesseract-ocr
+     ```
 
 ## Использование
 
