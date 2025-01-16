@@ -1,1 +1,3 @@
-
+﻿packaging==24.2
+pillow==11.1.0
+pytesseract==0.3.13
