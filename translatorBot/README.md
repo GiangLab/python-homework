@@ -18,6 +18,9 @@
 1. Установленный Python версии 3.7 или новее.
 2. Установленный docker.
 3. Установленные библиотеки Python из файла `requirements.txt`.
+4. Установленный [Tesseract OCR](https://github.com/tesseract-ocr/tesseract) на вашей системе.
+   - Убедитесь, что исполняемый файл Tesseract добавлен в PATH вашей системы.
+   - Скачайте языковые модели `rus.traineddata` и `eng.traineddata` из [tessdata](https://github.com/tesseract-ocr/tessdata) и поместите их в папку `tessdata` установки Tesseract.
 
 ## Установка
 
