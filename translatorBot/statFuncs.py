@@ -12,9 +12,8 @@ def add_data(id):
     if response.status_code == 200:
         return "Data added successfully!"
     else:
-        #return f"Error {response.status_code}:{response.json().get('error')}"
-        іі=f"Error {response.status_code}"
         return f"Error {response.status_code}"
+
 
 def get_report(date: str = datetime.today().strftime('%Y-%m-%d')):
     """Возвращает отчёт за выбранную дату (формат - YYYY-MM-DD).
