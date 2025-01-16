@@ -3,9 +3,9 @@ FROM python:3.11-slim
 
 # Устанавливаем зависимости
 WORKDIR /app
-COPY requirements.txt /app/
+COPY docker_requirements.txt /app/
 
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir -r docker_requirements.txt
 
 # Копируем весь код в контейнер
 COPY postgres_handler.py /app

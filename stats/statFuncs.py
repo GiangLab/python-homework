@@ -3,8 +3,9 @@ from datetime import datetime
 
 BASE_URL = 'http://localhost:5000'
 
-#добавляет запись pk,user_id,datetime в таблицу
+
 def add_data(id):
+    """добавляет запись pk,user_id,datetime в таблицу"""
     url = f"{BASE_URL}/add"
     response = requests.post(url, json={'user_id': id})
 
@@ -13,9 +14,10 @@ def add_data(id):
     else:
         return f"Error {response.status_code}:{response.json().get('error')}"
 
-#получает отчет за выбранную дату(тип -строка, формат - YYYY-MM-DD).
-#По умолчанию сегодняшняя
-def get_report(date=datetime.today().strftime('%Y-%m-%d')):
+
+def get_report(date: str = datetime.today().strftime('%Y-%m-%d')):
+    """Возвращает отчёт за выбранную дату (формат - YYYY-MM-DD).
+      По умолчанию сегодняшняя"""
     url = f"{BASE_URL}/report"
     response = requests.get(url, params={'date': date})
     if response.status_code == 200:
@@ -24,8 +26,9 @@ def get_report(date=datetime.today().strftime('%Y-%m-%d')):
     else:
         return f"Error {response.status_code}:{response.json().get('error')}"
 
-#возвращает все данные из таблицы (select *)
+
 def get_data():
+    """возвращает все данные из таблицы (select *)"""
     url = f"{BASE_URL}/data"
     response = requests.get(url)
     if response.status_code == 200:
@@ -34,8 +37,9 @@ def get_data():
     else:
         return f"Error {response.status_code}:{response.json().get('error')}"
 
-#очищает таблицу (truncate)
+
 def flush_data():
+    """очищает таблицу (truncate)"""
     url = f"{BASE_URL}/flush"
     response = requests.post(url)
     if response.status_code == 200:
