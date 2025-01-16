@@ -16,7 +16,7 @@ services:
       POSTGRES_USER: user
       POSTGRES_PASSWORD: password
     healthcheck:
-      test: [ "CMD", "pg_isready", "-U", "youruser" ]
+      test: [ "CMD", "pg_isready", "-U", "user", "-d", "testdb" ]
       interval: 10s
       retries: 5
     volumes:
