@@ -36,13 +36,13 @@ def create_table():
     execute_query("""
         CREATE TABLE IF NOT EXISTS user_activity (
             pk SERIAL PRIMARY KEY,
-            user_id INTEGER NOT NULL,
+            user_id bigint NOT NULL,
             date TIMESTAMP NOT NULL
         );
     """)
 
 
-#функция записи в базу данных
+# функция записи в базу данных
 @app.route('/add', methods=['POST'])
 def add_data():
     data = request.json.get('user_id')
@@ -51,16 +51,17 @@ def add_data():
 
     current_date = datetime.now() + timedelta(hours=3)
 
-
     execute_query("INSERT INTO user_activity (user_id, date) VALUES (%s, %s)",
                   (data, current_date))
 
     return jsonify({"message": "Data added successfully!"})
 
-#функция опустошения базы данных
+
+# функция опустошения базы данных
 @app.route('/flush', methods=['POST'])
 def flush_data():
-    execute_query("Truncate table user_activity ")
+    execute_query("drop table user_activity ")
+    create_table()
     return jsonify({"message": "Data flushed successfully!"})
 
 
@@ -84,7 +85,7 @@ def generate_report():
     """, (date,), res=True)
 
     # Генерация отчета
-    report = f"Статистика запросов по пользователям на {date} \n"
+    report = f"Статистика запросов по пользователям на {date.strftime('%Y-%m-%d')} \n"
     for user_id, count in rows:
         report += f'Пользователь {user_id}: количество запросов: {count} \n'
 
@@ -93,7 +94,7 @@ def generate_report():
 
 @app.route('/data', methods=['GET'])
 def get_data():
-    rows = execute_query("SELECT * FROM user_activity",res=True)
+    rows = execute_query("SELECT * FROM user_activity", res=True)
     return jsonify({"data": rows})
 
 
