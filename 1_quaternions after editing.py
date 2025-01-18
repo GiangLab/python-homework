@@ -98,19 +98,6 @@ class Quaternion:
         rotated_q = self * vector_q * self.inverse()
         return (rotated_q.x, rotated_q.y, rotated_q.z)
 
-    def __eq__(self, other):
-        """
-        Check equality of two quaternions.
-        """
-        if not isinstance(other, Quaternion):
-            return NotImplemented
-        return (
-            math.isclose(self.w, other.w, rel_tol=1e-9)
-            and math.isclose(self.x, other.x, rel_tol=1e-9)
-            and math.isclose(self.y, other.y, rel_tol=1e-9)
-            and math.isclose(self.z, other.z, rel_tol=1e-9)
-        )
-
 
 # Testing the fixed code
 
