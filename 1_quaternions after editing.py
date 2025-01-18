@@ -126,7 +126,7 @@ print("Product:", q1 * q2)
 print("Division:", q1 / q2)
 
 # Rotate a vector
-vector = (1, 0, 0)
+vector = (1, 1, 1)
 rotated_vector = q1.rotate_vector(vector)
 
 print("Rotated vector (1,1,1):",rotated_vector)
